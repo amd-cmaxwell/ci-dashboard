@@ -1,9 +1,9 @@
 {
-  "lastRefresh": "2026-09-17T02:24:39.182Z",
+  "lastRefresh": "2026-09-17T09:06:42.555Z",
   "periodDays": 14,
-  "totalFailures": 44,
-  "totalPRs": 5,
-  "confirmedFlakyCount": 14,
+  "totalFailures": 48,
+  "totalPRs": 6,
+  "confirmedFlakyCount": 16,
   "mergedDespiteFailureCount": 2,
   "failedTests": [
     {
@@ -295,6 +295,102 @@
           "jobDisplayName": "kata-containers-ci-on-push / run-kata-coco-tests-on-arm64 / run-k8s-tests-coco-arm64-k8s (qemu-coco-dev-runtime-rs, kubeadm)",
           "jobId": "104969972207",
           "runId": "35145268803",
+          "runAttempt": 1,
+          "isFlaky": true,
+          "prMerged": false
+        }
+      ]
+    },
+    {
+      "name": "Empty dir volume when FSGroup is specified with non-root container",
+      "file": "k8s-empty-dirs.bats",
+      "totalFailures": 2,
+      "flakyCount": 2,
+      "mergedCount": 0,
+      "isConfirmedFlaky": true,
+      "mergedDespiteFailure": false,
+      "uniquePRs": 1,
+      "uniqueDates": [
+        "2026-09-17"
+      ],
+      "affectedJobs": [
+        {
+          "name": "kata-containers-ci-on-push / run-k8s-tests-on-nvidia-cpu-arm64 / run-nvidia-cpu-tests-on-arm64",
+          "displayName": "kata-containers-ci-on-push / run-k8s-tests-on-nvidia-cpu-arm64 / run-nvidia-cpu-tests-on-arm64",
+          "count": 2,
+          "flakyCount": 2,
+          "mergedCount": 0
+        }
+      ],
+      "recentOccurrences": [
+        {
+          "date": "2026-09-17",
+          "prNumber": "13843",
+          "prTitle": "kata-deploy: undo what a redeploy drops from containerd's config\nkata-deploy: remove containerd handlers a redeploy drops",
+          "jobName": "kata-containers-ci-on-push / run-k8s-tests-on-nvidia-cpu-arm64 / run-nvidia-cpu-tests-on-arm64",
+          "jobDisplayName": "kata-containers-ci-on-push / run-k8s-tests-on-nvidia-cpu-arm64 / run-nvidia-cpu-tests-on-arm64",
+          "jobId": "105116683812",
+          "runId": "35194295702",
+          "runAttempt": 1,
+          "isFlaky": true,
+          "prMerged": false
+        },
+        {
+          "date": "2026-09-17",
+          "prNumber": "13843",
+          "prTitle": "kata-deploy: undo what a redeploy drops from containerd's config\nkata-deploy: remove containerd handlers a redeploy drops",
+          "jobName": "kata-containers-ci-on-push / run-k8s-tests-on-nvidia-cpu-arm64 / run-nvidia-cpu-tests-on-arm64",
+          "jobDisplayName": "kata-containers-ci-on-push / run-k8s-tests-on-nvidia-cpu-arm64 / run-nvidia-cpu-tests-on-arm64",
+          "jobId": "105116683812",
+          "runId": "35194295702",
+          "runAttempt": 1,
+          "isFlaky": true,
+          "prMerged": false
+        }
+      ]
+    },
+    {
+      "name": "Optional and Empty ConfigMap Volume for a pod",
+      "file": "k8s-optional-empty-configmap.bats",
+      "totalFailures": 2,
+      "flakyCount": 2,
+      "mergedCount": 0,
+      "isConfirmedFlaky": true,
+      "mergedDespiteFailure": false,
+      "uniquePRs": 1,
+      "uniqueDates": [
+        "2026-09-17"
+      ],
+      "affectedJobs": [
+        {
+          "name": "kata-containers-ci-on-push / run-k8s-tests-on-free-runner / run-k8s-tests (dragonball, minimum)",
+          "displayName": "kata-containers-ci-on-push / run-k8s-tests-on-free-runner / run-k8s-tests (dragonball, minimum)",
+          "count": 2,
+          "flakyCount": 2,
+          "mergedCount": 0
+        }
+      ],
+      "recentOccurrences": [
+        {
+          "date": "2026-09-17",
+          "prNumber": "13843",
+          "prTitle": "kata-deploy: undo what a redeploy drops from containerd's config\nkata-deploy: remove containerd handlers a redeploy drops",
+          "jobName": "kata-containers-ci-on-push / run-k8s-tests-on-free-runner / run-k8s-tests (dragonball, minimum)",
+          "jobDisplayName": "kata-containers-ci-on-push / run-k8s-tests-on-free-runner / run-k8s-tests (dragonball, minimum)",
+          "jobId": "105119593281",
+          "runId": "35194295702",
+          "runAttempt": 1,
+          "isFlaky": true,
+          "prMerged": false
+        },
+        {
+          "date": "2026-09-17",
+          "prNumber": "13843",
+          "prTitle": "kata-deploy: undo what a redeploy drops from containerd's config\nkata-deploy: remove containerd handlers a redeploy drops",
+          "jobName": "kata-containers-ci-on-push / run-k8s-tests-on-free-runner / run-k8s-tests (dragonball, minimum)",
+          "jobDisplayName": "kata-containers-ci-on-push / run-k8s-tests-on-free-runner / run-k8s-tests (dragonball, minimum)",
+          "jobId": "105119593281",
+          "runId": "35194295702",
           "runAttempt": 1,
           "isFlaky": true,
           "prMerged": false
@@ -975,8 +1071,8 @@
     }
   ],
   "summary": {
-    "totalFailedTests": 18,
-    "confirmedFlaky": 14,
+    "totalFailedTests": 20,
+    "confirmedFlaky": 16,
     "mergedDespiteFailure": 2,
     "mostAffectedJob": {
       "name": "kata-containers-ci-on-push / run-kata-coco-tests-on-arm64 / run-k8s-tests-coco-arm64-k8s (qemu-coco-dev-runtime-rs, kubeadm)",
@@ -1040,7 +1136,7 @@
       },
       {
         "date": "2026-09-17",
-        "failures": 0
+        "failures": 4
       }
     ],
     "jobBreakdown": [
@@ -1064,6 +1160,20 @@
         "count": 7,
         "flakyCount": 2,
         "mergedCount": 2
+      },
+      {
+        "name": "kata-containers-ci-on-push / run-k8s-tests-on-nvidia-cpu-arm64 / run-nvidia-cpu-tests-on-arm64",
+        "displayName": "kata-containers-ci-on-push / run-k8s-tests-on-nvidia-cpu-arm64 / run-nvidia-cpu-tests-on-arm64",
+        "count": 2,
+        "flakyCount": 2,
+        "mergedCount": 0
+      },
+      {
+        "name": "kata-containers-ci-on-push / run-k8s-tests-on-free-runner / run-k8s-tests (dragonball, minimum)",
+        "displayName": "kata-containers-ci-on-push / run-k8s-tests-on-free-runner / run-k8s-tests (dragonball, minimum)",
+        "count": 2,
+        "flakyCount": 2,
+        "mergedCount": 0
       },
       {
         "name": "kata-containers-ci-on-push / run-kata-coco-tests / run-k8s-tests-coco-nontee (qemu-coco-dev, experimental-force-guest-pull)",
