@@ -16,14 +16,6 @@ on:
         description: 'Force send both kata & trustee summaries even if already sent today'
         type: boolean
         default: false
-      force_kata:
-        description: 'Force send kata ci summary even if already sent today'
-        type: boolean
-        default: false
-      force_trustee:
-        description: 'Force send trustee ci summary even if already sent today'
-        type: boolean
-        default: false
 
 jobs:
   daily-summary-kata-snp:
@@ -31,23 +23,25 @@ jobs:
     with:
       job_label: 'SNP'
       job_repo: 'kata-containers'
+      nightly_workflow_api_path: 'repos/kata-containers/kata-containers/actions/workflows/ci-nightly.yaml/runs'
       test_filter_pattern: 'sev-snp|qemu-snp'
       test_exclude_pattern: 'experimental'
       notification_header: 'AMD SEV-SNP Nightly Kata CI Results'
-      force: ${{ github.event.inputs.force == 'true' || github.event.inputs.force_kata == 'true' }}
+      force: ${{ github.event.inputs.force == 'true' }}
     secrets: 
       slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL_SNP }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      gh_token: ${{ secrets.GITHUB_TOKEN }}
 
   daily-summary-trustee-snp:
     uses: ./.github/workflows/reusable-daily-summary.yml
     with:
       job_label: 'SNP'
       job_repo: 'trustee'
+      nightly_workflow_api_path: 'repos/confidential-containers/trustee/actions/workflows/test-e2e-helm-nightly.yml/runs'
       test_filter_pattern: '\(SNP\)'
       test_exclude_pattern: 'experimental'
       notification_header: 'AMD SEV-SNP Nightly Trustee CI Results'
-      force: ${{ github.event.inputs.force == 'true' || github.event.inputs.force_trustee == 'true' }}
+      force: ${{ github.event.inputs.force == 'true' }}
     secrets: 
       slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL_SNP }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      gh_token: ${{ secrets.GITHUB_TOKEN }}

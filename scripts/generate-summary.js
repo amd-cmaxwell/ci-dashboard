@@ -9,11 +9,8 @@
 const fs = require('fs');
 const yaml = require('js-yaml');
 
-const mode = process.argv[2];
-if (!mode || !['kata-containers', 'trustee'].includes(mode)) {
-  console.error('Usage: generate-summary.js <kata-containers|trustee>');
-  process.exit(1);
-}
+// Identify whether to summarize kata-containers tests or trustee tests
+const mode = (process.env.SUMMARY_MODE || 'kata-containers').toLowerCase();
 
 // Load data
 const data = JSON.parse(fs.readFileSync('data.json', 'utf8'));
